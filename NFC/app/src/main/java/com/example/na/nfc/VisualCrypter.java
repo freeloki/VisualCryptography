@@ -137,7 +137,7 @@ public class VisualCrypter implements Runnable{
         OutputStream fOut = null;
         File file = null;
         try {
-            String path = Environment.getExternalStorageDirectory().toString();
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath();
             file = new File(path, "share1.png");
             fOut = new FileOutputStream(file);
             shareOne.compress(Bitmap.CompressFormat.PNG, 100, fOut); // bmp is your Bitmap instance
@@ -158,7 +158,7 @@ public class VisualCrypter implements Runnable{
         }
 
         try {
-            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
+            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),Environment.DIRECTORY_PICTURES,file.getName(),file.getName());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -168,7 +168,7 @@ public class VisualCrypter implements Runnable{
         OutputStream fOut = null;
         File file = null;
         try {
-            String path = Environment.getExternalStorageDirectory().toString();
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath();
             file = new File(path, "share2.png");
             fOut = new FileOutputStream(file);
             shareTwo.compress(Bitmap.CompressFormat.PNG, 100, fOut); // bmp is your Bitmap instance
@@ -189,7 +189,7 @@ public class VisualCrypter implements Runnable{
         }
 
         try {
-            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
+            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),Environment.DIRECTORY_PICTURES,file.getName(),file.getName());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -199,7 +199,7 @@ public class VisualCrypter implements Runnable{
         OutputStream fOut = null;
         File file = null;
         try {
-            String path = Environment.getExternalStorageDirectory().toString();
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath();
             file = new File(path, "result.png");
             fOut = new FileOutputStream(file);
             xored.compress(Bitmap.CompressFormat.PNG, 100, fOut); // bmp is your Bitmap instance
@@ -220,7 +220,7 @@ public class VisualCrypter implements Runnable{
         }
 
         try {
-            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
+            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),Environment.DIRECTORY_PICTURES,file.getName(),file.getName());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
