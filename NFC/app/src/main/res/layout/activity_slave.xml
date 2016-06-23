@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:id="@+id/sharedImagesLayoutSlave"
+            android:orientation="horizontal"
+            android:background="@drawable/layout_borders">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/shareOneLayoutSlave"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/sharedOneImageViewSlave"
+                    android:src="@drawable/nopicture"
+                    android:background="@drawable/layout_borders"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_share_one_image"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/shareTwoLayoutSlave"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/sharedTwoImageViewSlave"
+                    android:src="@drawable/nopicture"
+                    android:background="@drawable/layout_borders"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_share_two_image"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:id="@+id/imageUploadLayoutSlave"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/layout_borders"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/originalImageViewSlave"
+                android:src="@drawable/nopicture"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_decompress"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>

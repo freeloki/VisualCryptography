@@ -2,9 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.na.nfc.MainActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+
+        <group android:checkableBehavior="single">
+            <item android:id="@+id/masterCheckbox"
+                android:title="@string/text_master"
+                android:checked="true"/>
+            <item android:id="@+id/slaveCheckbox"
+                android:title="@string/text_slave"
+                android:checked="false"/>
+        </group>
 </menu>

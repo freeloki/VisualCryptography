@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Checkable;
 import android.widget.ImageView;
 
 import com.example.na.nfc.listeners.CryptoListener;
@@ -33,10 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG ="TestApp";
     private Button cryptoBtn,chooseImage;
     private int PICK_IMAGE_REQUEST=1;
-    private ImageView original,shareOne,shareTwo;
+    private ImageView original,shareOne,shareTwo,decrypt,shareOneSlave,shareTwoSlave;
     private VisualCrypter mCrypter;
     private ProgressDialog cryptoProgress;
     private Bitmap choosenImage;
+    private boolean isSlaveChecked = false;
 
     // TODO : Create imageViews, run algorithm, show shares on ui.
     // TODO : check devices NFC compatibility.
@@ -63,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         original = (ImageView) findViewById(R.id.originalImageView);
         shareOne = (ImageView) findViewById(R.id.sharedOneImageView);
         shareTwo = (ImageView) findViewById(R.id.sharedTwoImageView);
+
+        decrypt = (ImageView) findViewById(R.id.originalImageViewSlave);
+        shareOneSlave = (ImageView) findViewById(R.id.sharedOneImageView);
+        shareTwoSlave = (ImageView) findViewById(R.id.sharedTwoImageView);
 
         // verify permission for marshmallow and +
         verifyStoragePermissions(this);
@@ -116,10 +123,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(R.id.masterCheckbox == id){
+            Log.i(TAG,"Master checkbox is clicked");
+            setContentView(R.layout.activity_master);
+            isSlaveChecked = false;
+            item.setChecked(true);
+
+        }else if(R.id.slaveCheckbox == id){
+            Log.i(TAG,"Slave checkbox is clicked");
+            setContentView(R.layout.activity_slave);
+            isSlaveChecked = true;
+            item.setChecked(true);
         }
+
+        //noinspection SimplifiableIfStatement
         return super.onOptionsItemSelected(item);
     }
 
